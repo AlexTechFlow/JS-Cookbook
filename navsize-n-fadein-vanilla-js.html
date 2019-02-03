@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400" rel="stylesheet">
+	<style>
+
+		body {
+		    margin: 0;
+		    padding: 0;
+		    font-weight: 400;
+		    font-family: 'Open Sans', sans-serif;
+		    font-size: 21px;
+		    width: 100%;
+	    }
+
+    	section {
+    		height: 100vh;
+    		width: 100%;
+    		padding: 9em 3em 3em 3em;
+    		box-sizing: border-box;
+    		color: white;
+    	}
+
+    	h1 {
+    		
+    		 font-family: 'Montserrat';
+    	     font-weight: 400;
+    	     font-size: 32px;
+             text-transform: uppercase;
+    	}
+
+      p {
+        	opacity: .8;
+        	font-weight: 300;
+        	width: 95%;
+           
+      }
+
+        section:nth-of-type(1) {background-color: rgb(29, 167, 103); padding-top: 12em;} 
+        section:nth-of-type(2) {background-color: rgb(37, 123, 180);}
+
+        #nav {
+            text-align: right;
+            position: fixed;
+            transition: all 0.4s; /* Add transition for smooth scrolling */
+            background-color: white;
+            width: 100%;
+            height: 200px;
+            z-index: 10;
+        }
+
+        #selectMySection {
+             transition: all 0.4s; /* Add transition for smooth fade in */
+        }
+
+        ul {
+            color: #FF5733;
+            list-style: none;
+            margin: 70px 0 70px 0;
+            padding-right: 2em;
+        }
+
+        li {
+            display: inline;
+            padding-right: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        img {
+            margin-right: 25px;
+            margin-top: 20px;
+            border: 2px solid #FEF4F2;
+            /*opacity: 0;*/
+        }
+
+   </style>
+</head>
+<body>
+
+    <nav id="nav">
+        <ul>
+            <li><a hre="">Section 1</a></li>
+            <li><a hre="">Section 2</a></li>
+        </ul>
+
+    </nav>
+
+    <section>
+
+            <h1>Section 1</h1>
+            <p>The Agency developed an integrated marketing campaign including a new website and professional referral package for a major GTA specialty (Endodontics) dentistry practice.</p>
+
+            <p>As part of the new responsive website, an SEO strategy was implemented to provide local visibility and top keyword ranking for main procedures.</p>
+
+            <p>A six-page referral package was developed around the tag line of “Excellence in the Art and Science of Endodontics” and promoted the practice’s leadership in the field.</p>
+
+    </section>
+
+
+    <section id="selectMySection">
+        <h1>Section 2</h1>
+        <p>The Agency developed an integrated marketing campaign including a new website and professional referral package for a major GTA specialty (Endodontics) dentistry practice.</p>
+
+        <p>As part of the new responsive website, an SEO strategy was implemented to provide local visibility and top keyword ranking for main procedures.</p>
+
+        <p>A six-page referral package was developed around the tag line of “Excellence in the Art and Science of Endodontics” and promoted the practice’s leadership in the field.</p>
+    </section>
+
+
+<script>
+
+
+// 1. REDUCE NAV BAR HEIGHT WHEN SCROLLING DOWN
+
+    function changeNavHeight(){
+
+        var myDynamicNav = document.getElementById('nav');
+        var ypos = window.pageYOffset;
+
+        if(ypos > 287) { // add your value here
+            myDynamicNav.style.height ="100px"; // this is the size you want the nav to be on scroll 
+        } else {
+            myDynamicNav.style.height = "200px"; // this has to be the same height as the height indicated in css
+        }
+    }    
+
+    window.addEventListener("scroll", changeNavHeight);
+
+
+
+// 2. FADE SECTION IN or OUT
+
+
+    function fadeInOut(){
+
+        var mySection = document.getElementById('selectMySection');
+        var ypos = window.pageYOffset;
+
+ 
+        if(ypos > 387) { // add your value here
+            mySection.style.opacity ="1"; 
+
+        } else {
+            mySection.style.opacity = "0";
+        }
+    }    
+
+    window.addEventListener("scroll", fadeInOut);
+
+
+</script>
+</body>
+</html>
