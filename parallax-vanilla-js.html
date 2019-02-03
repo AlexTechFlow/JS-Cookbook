@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Parallax with Vanilla JS</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: 'Montserrat';
+            font-weight: 400;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 21px;
+            line-height: 1.7;
+            padding: 3em;
+        }
+
+        div {
+            height: 100%;
+        }
+
+        ul {
+        	font-family: 'Montserrat', sans-serif;
+        	font-size: 3em;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            justify-content: center;
+            align-items: middle;
+            place-items: center;
+            height: 100vh;
+        }
+
+        li {
+        	text-transform: uppercase;
+        }
+
+        span {
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: black;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div>
+        <ul>
+            <li class="scroll" data-rate="-2" data-direction="vertical">Welcome</li>
+            <li>&nbsp; to &nbsp;</li>
+            <li class="scroll" data-rate="2" data-direction="vertical">MyWebSite.com</li>
+        </ul>
+    </div>
+    <div></div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut finibus ex, nec egestas nulla. Mauris nec tellus placerat dolor commodo dictum at id nulla. Vestibulum malesuada tellus eros, et scelerisque nisl tempus sit amet. Morbi vel bibendum nisl. Donec rutrum quis magna quis rutrum. Vestibulum vitae egestas diam, at dignissim elit. Aliquam condimentum eleifend vulputate. Ut volutpat bibendum leo, vitae vestibulum arcu interdum sollicitudin. Suspendisse augue erat, dapibus a nisi in, elementum tempus dui. Curabitur scelerisque urna sapien, eget tempor enim sodales varius. Integer vel iaculis justo. Nullam ultrices mauris erat, eu lobortis leo pellentesque sed</p>
+
+    <p>Nullam mattis nulla eget semper convallis. Aenean libero urna, auctor non dignissim id, hendrerit in mauris. Phasellus sollicitudin ullamcorper nisi, ac dictum sem maximus ut. Ut elit ante, sagittis ac tincidunt vel, facilisis ac purus. Phasellus sed tempus risus. Sed orci orci, faucibus ut enim ac, lacinia vehicula nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac sapien quis risus ullamcorper laoreet id quis arcu. In tincidunt vulputate justo, in tempus risus eleifend nec.</p>
+
+    <p>Proin sodales cursus commodo. Phasellus placerat purus mi, ac consectetur eros finibus a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec condimentum arcu, et pellentesque erat. Duis tellus tortor, iaculis eu dolor et, lacinia euismod odio. Curabitur suscipit lacinia lobortis. Sed aliquam laoreet mi, ac rutrum est consequat vel.<p/>
+
+
+	<script>
+
+        window.addEventListener('scroll', function(e) {
+
+            const target = document.querySelectorAll('.scroll');
+
+
+            var index = 0, length = target.length;
+            for (index; index < length; index++) {
+                var pos = window.pageYOffset * target[index].dataset.rate;
+
+                if(target[index].dataset.direction === 'vertical') {
+                    target[index].style.transform = 'translate3d(0px,'+pos+'px, 0px)';
+                } else {
+                    var posX = window.pageYOffset * target[index].dataset.ratex;
+                    var posY = window.pageYOffset * target[index].dataset.ratey;
+                    
+                    target[index].style.transform = 'translate3d('+posX+'px, '+posY+'px, 0px)';
+                }
+            }
+
+
+        });
+
+  </script>
+</body>
+</html>
